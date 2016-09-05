@@ -1,0 +1,32 @@
+{
+  "name": "nodebb-plugin-giphy",
+  "version": "1.0.0",
+  "description": "NodeBB Plugin that allows users to search for gifs from within the composer",
+  "main": "library.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bdharrington7/nodebb-plugin-giphy"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "giphy",
+    "gifs",
+    "animated",
+    "autocomplete"
+  ],
+  "author": "Brian Harrington <BDHarrington7@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bdharrington7/nodebb-plugin-giphy/issues"
+  },
+  "nbbpm": {
+    "compatibility": "^1.1.0"
+  },
+  "dependencies": {
+    "request": "^2.74.0"
+  }
+}

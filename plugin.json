@@ -1,0 +1,19 @@
+{
+	"id": "nodebb-plugin-giphy",
+	"name": "Giphy",
+	"description": "NodeBB Plugin that allows users to search for gifs from within the composer",
+	"url": "https://github.com/bdharrington7/nodebb-plugin-giphy",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "filter:parse.post", "method": "parsePost" },
+		{ "hook": "filter:parse.raw", "method": "parseRaw" }
+	],
+	"scripts": [
+		"static/autofill.js"
+	],
+	"less": [
+		"static/style.less"
+	],
+	"languages": "languages",
+	"defaultLang": "en_US"
+}
