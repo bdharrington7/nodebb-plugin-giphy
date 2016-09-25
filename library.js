@@ -61,7 +61,8 @@ SocketPlugins.giphy.search = function(socket, data, callback) {
 			winston.info('sending image links:', JSON.parse(body)['data']);
 			// if (!body.data) return;
 			links = JSON.parse(body).data.map(function(record) {
-				return '<img src=' + record.images.fixed_width_small.url + ' original=' + record.images.original.url + '>';
+				return '<img src=' + record.images.fixed_width_small.url + ' original=' + record.images.original.url +
+				' term=' + data.query + '>';
 				// return record.images.fixed_width_small.url;
 			})
 			winston.info('links:', links);

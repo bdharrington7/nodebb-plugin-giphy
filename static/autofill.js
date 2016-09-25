@@ -30,7 +30,8 @@ $(document).ready(function() {
 				// console.log('selected:', selected)
 				var ele = $.parseHTML(selected);
 				var orig = $(ele).attr('original');
-				return '![](' + orig + ') ';
+				var term = $(ele).attr('term');
+				return '![' + term + '](' + orig + ') ';
 			},
 			cache: true
 		};
