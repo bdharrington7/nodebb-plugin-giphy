@@ -8,14 +8,15 @@
               <div class="panel panel-primary">
                 <div class="panel-heading">API Key</div>
                 <div class="panel-body">
-                If no API key is provided, the public API key will be used, but note that the public API key is only for testing use,
+                If no API key is provided, the public API key will be used.<br/>
+                Note that the public API key is only for testing use,
                 using it in production will likely rate limit your whole forum.
                 <input
                   id="extensions"
                   class="form-control"
                   type="text"
                   placeholder="dc6zaTOxFJmzC"
-                  data-key="strings.api_key" />
+                  data-key="strings.apiKey" />
                 </div>
               </div>
             </div>
@@ -34,13 +35,12 @@
       <script type="text/javascript">
         require(['settings'], function(settings) {
           var wrapper = $('#giphy_acp');
-          // [1]
           settings.sync('giphy', wrapper);
           $('#save').click(function(event) {
             event.preventDefault();
-            // TODO clean and organize extensions
-            settings.persist('giphy', wrapper, function persistGiphy() {
+            settings.persist('giphy', wrapper, function() {
               socket.emit('admin.settings.syncGiphy');
+              // TODO add confirmation
             })
           });
         });
