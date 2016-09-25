@@ -4,7 +4,8 @@
   "description": "NodeBB Plugin that allows users to search for gifs from within the composer",
   "main": "library.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard",
+    "posttest": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
   },
   "dependencies": {
     "request": "^2.74.0"
+  },
+  "devDependencies": {
+    "standard": "5.4.x"
   }
 }
