@@ -4,9 +4,12 @@
 	"description": "NodeBB Plugin that allows users to search for gifs from within the composer",
 	"url": "https://github.com/bdharrington7/nodebb-plugin-giphy",
 	"library": "./library.js",
+	"templates": "./public/templates",
 	"hooks": [
+		{ "hook": "static:app.load", "method": "onLoad" },
 		{ "hook": "filter:parse.post", "method": "parsePost" },
-		{ "hook": "filter:parse.raw", "method": "parseRaw" }
+		{ "hook": "filter:parse.raw", "method": "parseRaw" },
+		{ "hook": "filter:admin.header.build", "method": "admin.menu" }
 	],
 	"scripts": [
 		"static/autofill.js"
