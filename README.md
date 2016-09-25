@@ -14,10 +14,10 @@ Search for "giphy" in the Nodebb Plugins list, or
 ## Todo:
 
 * Admin page and settings
-  * implement ability to set API key
+  * ~~implement ability to set API key~~
   * implement settings for:
     * limit
     * maturity rating
 * debounce
-* change regex to consume whitespace in search
+* ~~change regex to consume whitespace in search~~
 * Add "Powered by Giphy" attribution marks

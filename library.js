@@ -86,6 +86,7 @@ Giphy.parseRaw = function (content, callback) {
 
 SocketPlugins.giphy.search = function (socket, data, callback) {
   winston.info('data:', data)
+  // TODO: URL encode the query
   var url = apiUrl + data.query
   if (debug) {
     winston.info('query:', url)

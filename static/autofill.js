@@ -4,7 +4,7 @@
 $(document).ready(function () {
   $(window).on('composer:autocomplete:init', function (ev, data) {
     var strategy = {
-      match: /\B&([^\s\n]*)?$/,
+      match: /\B&([^\s\n]+[^\n]+)$/,
       search: function (term, callback) {
         if (!term || term.length < 2) {
           console.log('term is too short')
