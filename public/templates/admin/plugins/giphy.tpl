@@ -69,8 +69,23 @@
           $('#save').click(function(event) {
             event.preventDefault();
             settings.persist('giphy', wrapper, function() {
-              socket.emit('admin.settings.syncGiphy');
-              // TODO add confirmation
+              socket.emit('admin.settings.syncGiphy', function(err) {
+                if(err) {
+                  app.alert({
+                    type: 'warn',
+                    alert_id: 'giphy-settings-sync-fail',
+                    title: 'Reload needed',
+                    message: 'Something broke :( Reload forum for settings to take effect'
+                  });
+                  return
+                }
+                app.alert({
+                  type: 'success',
+                  alert_id: 'giphy-settings-sync-success',
+                  title: 'Reload Success',
+                  message: 'Plugin settings reloaded'
+                });
+              });
             })
           });
         });

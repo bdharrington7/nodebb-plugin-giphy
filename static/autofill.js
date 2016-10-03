@@ -30,7 +30,7 @@ $(document).ready(function () {
         var orig = $(ele).attr('original')
         var term = $(ele).attr('term')
         var render = $(ele).attr('render')
-        switch(render) {
+        switch (render) {
           case 'html':
             return '<img src="' + orig + '" alt="' + term + '" title="' + term + '> '
           case 'bbcode':

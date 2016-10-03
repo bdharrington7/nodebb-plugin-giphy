@@ -120,11 +120,14 @@ Giphy.admin = {
   }
 }
 
-SocketAdmin.settings.syncGiphy = function (data) {
+SocketAdmin.settings.syncGiphy = function (data, cb) {
   if (debug) {
     winston.info(ns + 'Syncing settings')
   }
-  settings.sync(Giphy.init)
+  settings.sync(function (err) {
+    Giphy.init()
+    cb(err)
+  })
 }
 
 module.exports = Giphy
