@@ -5,6 +5,7 @@
 	"url": "https://github.com/bdharrington7/nodebb-plugin-giphy",
 	"library": "./library.js",
 	"templates": "./public/templates",
+  "staticDirs": {"static": "public/image/"},
 	"hooks": [
 		{ "hook": "static:app.load", "method": "onLoad" },
 		{ "hook": "filter:parse.post", "method": "parsePost" },

@@ -30,7 +30,8 @@ var defaultSettings = {
   strings: {
     apiKey: 'dc6zaTOxFJmzC',
     limit: '3',
-    parseMode: 'markdown'
+    render: 'markdown',
+    rating: '(none)'
   }
 }
 
@@ -50,7 +51,7 @@ Giphy.onLoad = function (params, callback) {
   params.router.get('/api/admin/plugins/giphy', render)
   winston.info(ns + 'Initializing with API key:', settings.get('strings.apiKey'))
   if (settings.get('strings.apiKey') === defaultSettings.strings.apiKey) {
-    winston.warn(ns + 'API key is still set to the public one, this may cause problems in production')
+    winston.warn(ns + 'API key is still set to the public beta key')
   }
   Giphy.init()
   callback()
@@ -62,35 +63,26 @@ Giphy.init = function () {
   if (settings.get('strings.limit')) {
     apiUrl += '&limit=' + settings.get('strings.limit')
   }
+  var rating = settings.get('strings.rating')
+  if (rating && rating !== '(none)') {
+    apiUrl += '&rating=' + rating
+  }
   apiUrl += '&q='
 }
 
-Giphy.parsePost = function (data, callback) {
-  if (!data || !data.postData || !data.postData.content) {
-    return callback(null, data)
-  }
-
-  Giphy.parseRaw(data.postData.content, function (err, content) {
-    if (err) {
-      return callback(err)
-    }
-
-    data.postData.content = content
-    callback(null, data)
-  })
-}
-
-Giphy.parseRaw = function (content, callback) {
-  return callback(null, content)
-}
-
 SocketPlugins.giphy.search = function (socket, data, callback) {
-  winston.info('data:', data)
-  // TODO: URL encode the query
-  var url = apiUrl + data.query
+  var url = apiUrl + encodeURIComponent(data.query)
   if (debug) {
     winston.info('query:', url)
   }
+  // for testing
+  // var links = [{src: 'img1', orig: 'img1orig'}, {src: 'img1', orig: 'img1orig'}].map(function (record) {
+  //   return createImgTag(record.src, record.orig, data.query, settings.get('strings.render'))
+  // })
+  // callback(null, links)
+  // return
+  // end testing
+
   request.get(url, function (error, res, body) {
     if (error) {
       winston.error(ns + error)
@@ -102,13 +94,17 @@ SocketPlugins.giphy.search = function (socket, data, callback) {
         winston.info('sending image links:', JSON.parse(body)['data'])
       }
       links = JSON.parse(body).data.map(function (record) {
-        return '<img src=' + record.images.fixed_width_small.url + ' original=' + record.images.original.url +
-        ' term=' + data.query + '>'
+        return createImgTag(record.images.fixed_width_small.url, record.images.original.url, data.query,
+          settings.get('strings.render'))
       })
       winston.info('links:', links)
     }
     return callback(null, links)
   })
+}
+
+var createImgTag = function (smallUrl, originalUrl, term, render) {
+  return '<img src="' + smallUrl + '" original="' + originalUrl + '" term="' + term + '" render="' + render + '">'
 }
 
 /* Admin functions */

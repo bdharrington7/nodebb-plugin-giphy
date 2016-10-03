@@ -8,15 +8,45 @@
               <div class="panel panel-primary">
                 <div class="panel-heading">API Key</div>
                 <div class="panel-body">
-                If no API key is provided, the public API key will be used.<br/>
+                If no API key is provided, the public beta API key will be used.<br/>
                 Note that the public API key is only for testing use,
-                using it in production will likely rate limit your whole forum.
+                using it in production might rate limit your whole forum. If this happens, try applying for a
+                dedicated key at <a href="https://api.giphy.com/submit">https://api.giphy.com/submit</a>
                 <input
                   id="extensions"
                   class="form-control"
                   type="text"
                   placeholder="dc6zaTOxFJmzC"
                   data-key="strings.apiKey" />
+                </div>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Render images in:</div>
+                  <div class="panel-body">
+                    <select
+                      id="render"
+                      class="form-control"
+                      data-key="strings.render">
+                      <option>markdown</option>
+                      <option>bbcode</option>
+                      <option>html</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Max Rating</div>
+                  <div class="panel-body">
+                    <select
+                      id="rating"
+                      class="form-control"
+                      data-key="strings.rating">
+                      <option>(none)</option>
+                      <option>y</option>
+                      <option>g</option>
+                      <option>pg</option>
+                      <option>pg-13</option>
+                      <option>r</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>

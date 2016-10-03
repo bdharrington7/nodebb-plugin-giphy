@@ -17,10 +17,11 @@ $(document).ready(function () {
             return callback([])
           }
 
-          // return an array of links
-
           callback(links)
         })
+        // for testing
+        // links = ['image1.jpg', 'image2.jpg']
+        // callback(links)
       },
       index: 1,
       replace: function (selected) {
@@ -28,12 +29,21 @@ $(document).ready(function () {
         var ele = $.parseHTML(selected)
         var orig = $(ele).attr('original')
         var term = $(ele).attr('term')
-        return '![' + term + '](' + orig + ') '
+        var render = $(ele).attr('render')
+        switch(render) {
+          case 'html':
+            return '<img src="' + orig + '" alt="' + term + '" title="' + term + '> '
+          case 'bbcode':
+            return '[img alt="' + term + '" title="' + term + '"]' + orig + '[/img] '
+          default: // markdown
+            return '![' + term + '](' + orig + ') '
+        }
       },
       cache: true
     }
 
     data.strategies.push(strategy)
+    data.options.footer = 'Powered by Giphy'
   })
 
   $(window).on('action:composer.loaded', function (e, data) {
