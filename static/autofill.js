@@ -40,8 +40,8 @@ $(document).ready(function () {
     }
 
     data.strategies.push(strategy)
-    data.options.footer = 'Powered by Giphy'
-    data.options.debounce = 500
+    data.options.footer = '<img src="/plugins/nodebb-plugin-giphy/static/giphy_badge.gif" width=100>'
+    data.options.debounce = 300
   })
 
   $(window).on('action:composer.loaded', function (e, data) {
