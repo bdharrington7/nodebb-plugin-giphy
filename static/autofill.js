@@ -7,10 +7,8 @@ $(document).ready(function () {
       match: /\B&([^\s\n]+[^\n]+)$/,
       search: function (term, callback) {
         if (!term || term.length < 2) {
-          console.log('term is too short')
           return callback([])
         }
-        console.log('searching for', term)
 
         socket.emit('plugins.giphy.search', {query: term}, function (err, links) {
           if (err) {
@@ -25,7 +23,6 @@ $(document).ready(function () {
       },
       index: 1,
       replace: function (selected) {
-        // console.log('selected:', selected)
         var ele = $.parseHTML(selected)
         var orig = $(ele).attr('original')
         var term = $(ele).attr('term')
@@ -44,6 +41,7 @@ $(document).ready(function () {
 
     data.strategies.push(strategy)
     data.options.footer = 'Powered by Giphy'
+    data.options.debounce = 500
   })
 
   $(window).on('action:composer.loaded', function (e, data) {

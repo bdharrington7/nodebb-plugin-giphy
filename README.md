@@ -18,6 +18,6 @@ Search for "giphy" in the Nodebb Plugins list, or
   * ~~implement settings for:~~
     * ~~limit~~
     * ~~maturity rating~~
-* debounce
+* ~~debounce~~
 * ~~change regex to consume whitespace in search~~
 * Add "Powered by Giphy" attribution marks

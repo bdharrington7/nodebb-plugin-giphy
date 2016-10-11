@@ -97,7 +97,9 @@ SocketPlugins.giphy.search = function (socket, data, callback) {
         return createImgTag(record.images.fixed_width_small.url, record.images.original.url, data.query,
           settings.get('strings.render'))
       })
-      winston.info('links:', links)
+      if (debug) {
+        winston.info('links:', links)
+      }
     }
     return callback(null, links)
   })
