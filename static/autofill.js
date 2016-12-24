@@ -37,7 +37,7 @@ $(document).ready(function () {
         }
       },
       cache: true,
-      context: function(text) {
+      context: function (text) {
         if (text.startsWith('&')) {
           return text
         }
@@ -45,7 +45,7 @@ $(document).ready(function () {
     }
 
     data.strategies.push(strategy)
-    data.options.footer = function(data) {
+    data.options.footer = function (data) {
       // yes, hacky. only render this footer if we're rendering the giphy data
       if (data && data.length && typeof data[0] === 'string' && data[0].startsWith('<img')) {
         return '<img src="/plugins/nodebb-plugin-giphy/static/giphy_badge.gif" width=100>'
