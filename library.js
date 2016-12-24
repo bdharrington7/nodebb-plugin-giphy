@@ -93,9 +93,9 @@ SocketPlugins.giphy.search = function (socket, data, callback) {
     }
     var links = []
     if (res.statusCode === 200) {
-      if (debug) {
-        winston.info('sending image links:', JSON.parse(body)['data'])
-      }
+      // if (debug) {  // really verbose
+      //   winston.info('sending image links:', JSON.parse(body)['data'])
+      // }
       links = JSON.parse(body).data.map(function (record) {
         return createImgTag(record.images.fixed_width_small.url, record.images.original.url, data.query,
           settings.get('strings.render'))

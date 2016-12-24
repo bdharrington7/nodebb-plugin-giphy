@@ -8,9 +8,8 @@
               <div class="panel panel-primary">
                 <div class="panel-heading">API Key</div>
                 <div class="panel-body">
-                If no API key is provided, the public beta API key will be used.<br/>
-                Note that the public API key is only for testing use,
-                using it in production might rate limit your whole forum. If this happens, try applying for a
+                If no API key is provided, the [public beta API key](https://github.com/Giphy/GiphyAPI#public-beta-key) will be used.<br/>
+                If you notice that requests start to fail (rate limiting), try applying for a
                 dedicated key at <a href="https://api.giphy.com/submit">https://api.giphy.com/submit</a>
                 <input
                   id="extensions"
