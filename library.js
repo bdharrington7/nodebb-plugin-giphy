@@ -58,7 +58,10 @@ Giphy.onLoad = function (params, callback) {
 }
 
 Giphy.init = function () {
-  apiUrl = 'https://api.giphy.com/v1/gifs/search?api_key=' + settings.get('strings.apiKey')
+  apiUrl = 'https://api.giphy.com/v1/gifs/search?api_key='
+
+  // add the api url but if it's empty use the default
+  apiUrl += settings.get('strings.apiKey') ? settings.get('strings.apiKey') : defaultSettings.strings.apiKey
 
   if (settings.get('strings.limit')) {
     apiUrl += '&limit=' + settings.get('strings.limit')
