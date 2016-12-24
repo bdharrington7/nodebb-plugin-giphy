@@ -12,7 +12,7 @@
                 If you notice that requests start to fail (rate limiting), try applying for a
                 dedicated key at <a href="https://api.giphy.com/submit">https://api.giphy.com/submit</a>
                 <input
-                  id="extensions"
+                  id="apiKey"
                   class="form-control"
                   type="text"
                   placeholder="dc6zaTOxFJmzC"
@@ -44,6 +44,26 @@
                       <option>pg</option>
                       <option>pg-13</option>
                       <option>r</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="panel panel-primary">
+                  <div class="panel-heading">Number of images to return</div>
+                  <div class="panel-body">
+                    <select
+                      id="limit"
+                      class="form-control"
+                      data-key="strings.limit">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                      <option>10</option>
                     </select>
                   </div>
                 </div>
