@@ -1,4 +1,5 @@
 # Insert Gifs right from the composer
+![demo](http://i.giphy.com/3o6ZtpW8MROd9L1Dqg.gif)
 
 This NodeBB plugin allows posters to search for an insert gifs from Giphy right in the composer.
 
