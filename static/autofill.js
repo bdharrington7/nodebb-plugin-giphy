@@ -36,11 +36,21 @@ $(document).ready(function () {
             return '![' + term + '](' + orig + ') '
         }
       },
-      cache: true
+      cache: true,
+      context: function(text) {
+        if (text.startsWith('&')) {
+          return text
+        }
+      }
     }
 
     data.strategies.push(strategy)
-    data.options.footer = '<img src="/plugins/nodebb-plugin-giphy/static/giphy_badge.gif" width=100>'
+    data.options.footer = function(data) {
+      // yes, hacky. only render this footer if we're rendering the giphy data
+      if (data && data.length && typeof data[0] === 'string' && data[0].startsWith('<img')) {
+        return '<img src="/plugins/nodebb-plugin-giphy/static/giphy_badge.gif" width=100>'
+      }
+    }
     data.options.debounce = 300
   })
 
