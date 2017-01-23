@@ -36,12 +36,7 @@ $(document).ready(function () {
             return '![' + term + '](' + orig + ') '
         }
       },
-      cache: true,
-      context: function (text) {
-        if (text.startsWith('&')) {
-          return text
-        }
-      }
+      cache: true
     }
 
     data.strategies.push(strategy)
