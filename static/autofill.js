@@ -15,6 +15,9 @@ $(document).ready(function () {
             return callback([])
           }
 
+          if (links.length == 0) {
+            return callback(['No results'])
+          }
           callback(links)
         })
         // for testing
@@ -23,6 +26,9 @@ $(document).ready(function () {
       },
       index: 1,
       replace: function (selected) {
+        if (selected === 'No results') {
+          return ''
+        }
         var ele = $.parseHTML(selected)
         var orig = $(ele).attr('original')
         var term = $(ele).attr('term')
