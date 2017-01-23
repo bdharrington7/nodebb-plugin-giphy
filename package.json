@@ -1,6 +1,6 @@
 {
   "name": "nodebb-plugin-giphy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "NodeBB Plugin that allows users to search for gifs from within the composer",
   "main": "library.js",
   "scripts": {
